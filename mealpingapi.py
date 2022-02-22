@@ -1,9 +1,7 @@
 # Install pyTelegramBotAPI using:
 # pip install pyTelegramBotAPI
 
-from urllib import request
 import requests
-
 import telebot
 
 API_KEY = "YOUR API TOKEN HERE"
@@ -12,8 +10,6 @@ bot = telebot.TeleBot(API_KEY)
 
 base_mealdb_url = 'https://www.themealdb.com/api/json/v1/1/search.php'
 rand_url = 'https://www.themealdb.com/api/json/v1/1/random.php'
-
-
 
 @bot.message_handler(commands=['random'])
 def msg(randomm):
@@ -30,20 +26,16 @@ def msg(randomm):
           print(data)
           bot.send_message(randomm.chat.id, data)
 
-
-
 def recipe_request(mssg):
    reqt = mssg.text.split()
    if reqt[0].lower():
      return True
    else:
      return 
-     
-      
+         
 @bot.message_handler(func=recipe_request)
 def send_recipe(mssg):
   try:    
-    
          reqt = mssg.text.split()
          listToStr = ' '.join([str(elem) for elem in reqt])
 
@@ -65,9 +57,4 @@ def send_recipe(mssg):
   except:
          bot.send_message(mssg.chat.id, "Sorry, No Recipes Found :( \nTry /random")
          
-
-
-          
-
-    
 bot.polling()
