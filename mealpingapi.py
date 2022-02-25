@@ -11,6 +11,12 @@ bot = telebot.TeleBot(API_KEY)
 base_mealdb_url = 'https://www.themealdb.com/api/json/v1/1/search.php'
 rand_url = 'https://www.themealdb.com/api/json/v1/1/random.php'
 
+
+@bot.message_handler(commands=['start'])
+def msg(randomm):
+         
+          bot.send_message(randomm.chat.id, "Try typing:\nMatar Paneer\n\nOr /random")
+
 @bot.message_handler(commands=['random'])
 def msg(randomm):
           rand = requests.get(rand_url)
