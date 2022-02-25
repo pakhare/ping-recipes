@@ -1,2 +1,2 @@
-# recipes-telegram-bot
+# ping-recipes
 Telegram bot for recipes using "themealdb" api.
